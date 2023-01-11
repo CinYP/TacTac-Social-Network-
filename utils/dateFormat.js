@@ -37,7 +37,7 @@ module.exports = (
     10: monthLength === 'short' ? 'Nov' : 'November',
     11: monthLength === 'short' ? 'Dec' : 'December',
   };
-  
+
   const dateObj = new Date(timestamp);
   const formattedMonth = months[dateObj.getMonth()];
 
@@ -48,7 +48,7 @@ module.exports = (
   const year = dateObj.getFullYear();
   let hour =
     dateObj.getHours() > 12
-      ? Math.floor(dateObj.getHours() - 12
+      ? Math.floor(dateObj.getHours() - 12)
       : dateObj.getHours();
 
   // if hour is 0 (12:00am), change it to 12
