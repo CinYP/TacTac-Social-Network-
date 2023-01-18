@@ -8,6 +8,8 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
+     // match: 
+      //use regex here 
       max_length: 50,
     },
     email: {
