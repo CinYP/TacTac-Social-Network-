@@ -70,7 +70,7 @@ module.exports = {
       .then((user) => {
         !user
           ? res.status(404).json({ message: 'No such user exists' })
-          : res.json(user); 
+          : Thought.deleteMany({_id:{ $in:user.thoughts}})
       })
       .then(() =>{
           res.json({ message: 'user successfully deleted' })
