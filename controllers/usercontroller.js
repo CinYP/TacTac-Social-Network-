@@ -59,14 +59,14 @@ module.exports = {
   },
 
   
-  // Add an assignment to a user
-  addAssignment(req, res) {
-    console.log('You are adding an assignment');
+  // Add a friend to a user
+  addFriend(req, res) {
+    console.log('You are adding a friend');
     console.log(req.body);
-    user.findOneAndUpdate(
+    User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $addToSet: { assignments: req.body } },
-      { runValidators: true, new: true }
+      { $addToSet: { friends: req.params.friendid } },
+      { new: true }
     )
       .then((user) =>
         !user
