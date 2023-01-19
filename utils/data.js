@@ -96,22 +96,6 @@ const names = [
     return results;
   };
   
-  //change this to get a random thought 
-  // Create the responses that will be added to each video
-  const getVideoResponses = (int) => {
-    if (int === 1) {
-      return getRandomArrItem(possibleResponses);
-    }
-    let results = [];
-    for (let i = 0; i < int; i++) {
-      results.push({
-        responseBody: getRandomArrItem(possibleResponses),
-        username: getRandomName(),
-      });
-    }
-    return results;
-  };
-  
   // Export the functions for use in seed.js
-  module.exports = { getRandomName, getRandomThoughts, getRandomVideos };
+  module.exports = { getRandomName, getRandomThoughts };
   
