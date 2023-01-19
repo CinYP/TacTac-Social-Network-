@@ -1,4 +1,4 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 const reactionSchema = require('./Reaction'); 
 const dateFormat = require('../utils/dateFormat');
 
@@ -28,6 +28,7 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
+
 thoughtSchema.virtual('reactionCount').get(function(){
     return this.reaction.length;
 });
