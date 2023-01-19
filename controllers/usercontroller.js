@@ -64,7 +64,7 @@ module.exports = {
   },
 
 
-  // Delete a user and remove them from the course
+  // Delete a user and remove them from the thought
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userId })
       .then((user) => {
@@ -81,14 +81,13 @@ module.exports = {
       });
   },
 
-  
   // Add a friend to a user
   addFriend(req, res) {
     console.log('You are adding a friend');
     console.log(req.body);
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $addToSet: { friends: req.params.friendid } },
+      { $addToSet: { friends: req.params.friendId } },
       { new: true }
     )
       .then((user) =>
