@@ -84,7 +84,7 @@ module.exports = {
     console.log(req.body);
     reactionSchema.findOneAndUpdate(
         {_id: req.params.reactionId},
-        { $addToSet: {reactions: req.params.reactionId}}
+        { $addToSet: {reactions: req.params.reactionId}},
         {new: true}
     )
     .then((thoughts) =>
@@ -95,7 +95,22 @@ module.exports = {
     : res.json(thought)
     )
     .catch(err => res.status(500).json(err));
-  }
+  },
 
   // delete reaction
+  removeReaction(req, res){
+    reaction.findOneAndUpdate(
+        {_id: req.params.reactionId},
+        { $pull: {reactions: req.params.reactionId}},
+        {new: true}
+    )
+    .then((thoughts) =>
+    !thoughts
+    ? res
+        .status(404)
+        .json({ message: 'No reaction with this id!' })
+    : res.json(thought)
+    )
+    .catch(err => res.status(500).json(err));
+  },
 };
