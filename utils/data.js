@@ -77,7 +77,9 @@ const names = [
   
   // Gets a random user
   const getRandomName = () =>
-    `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
+    `${getRandomArrItem(names)} ${getRandomArrItem(names)}`
+
+    users.push(getRandomName);
   
     //change to get a random username  
   // Function to generate random videos that we can add to the database. Includes video responses.

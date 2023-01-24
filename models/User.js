@@ -8,15 +8,14 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
-     // match: 
-      //use regex here 
       max_length: 50,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      max_length: 50,
+      match: [/.+@.+\..+/, "Must match an email address!"],
+      max_length: 100,
     },
     thoughts: [
         {
